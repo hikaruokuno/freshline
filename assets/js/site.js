@@ -35,18 +35,4 @@ document.addEventListener("DOMContentLoaded", () => {
       target.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
-
-  if (document.body.dataset.trial === "true") {
-    document.querySelectorAll("a[href]").forEach((anchor) => {
-      const href = anchor.getAttribute("href");
-      if (!href) return;
-      if (href === "/" || href.startsWith("#")) return;
-      if (href.startsWith("http") || href.startsWith("mailto") || href.startsWith("tel")) return;
-      if (href.startsWith("/")) {
-        anchor.classList.add("link-disabled");
-        anchor.setAttribute("aria-disabled", "true");
-        anchor.setAttribute("tabindex", "-1");
-      }
-    });
-  }
 });
